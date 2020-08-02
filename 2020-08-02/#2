@@ -1,0 +1,37 @@
+package main
+
+import (
+	"log"
+)
+
+func main() {
+	obj := NewHash()
+	obj.Add(10000)
+	log.Print(obj.Contains(10000))
+	obj.Remove(1000)
+	log.Print(obj.Contains(1000))
+}
+
+type MyHashSet struct {
+	d map[int]bool
+}
+
+/** Initialize your data structure here. */
+func NewHash() MyHashSet {
+	d := map[int]bool{}
+	return MyHashSet{d: d}
+}
+
+func (s *MyHashSet) Add(key int) {
+	s.d[key] = true
+}
+
+func (s *MyHashSet) Remove(key int) {
+	delete(s.d, key)
+}
+
+/** Returns true if this set contains the specified element */
+func (s *MyHashSet) Contains(key int) bool {
+	_, ok := s.d[key]
+	return ok
+}

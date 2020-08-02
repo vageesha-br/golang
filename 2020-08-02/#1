@@ -1,0 +1,17 @@
+package main
+
+import (
+	"log"
+	"strings"
+)
+
+func main() {
+	log.Println(detectCapitalUse("FlaG"))
+	log.Println(detectCapitalUse("USA"))
+	log.Println(detectCapitalUse("leetcode"))
+
+}
+
+func detectCapitalUse(word string) bool {
+	return strings.Title(strings.ToLower(word)) == word  || strings.ToUpper(word) == word || strings.ToLower(word) == word
+}
